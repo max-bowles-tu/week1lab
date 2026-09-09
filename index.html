@@ -1,17 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Lab 1 | Hello, Audio</title>
-</head>
-<body>
-<button>Click Me</button>
+  </head>
+  <body>
+    <button>Click Me</button>
     <script>
-  
+      const ctx = new AudioContext();
+      let freq = 440;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
 
-
-        //Do not edit the code below here
-        document.querySelector("button").onclick = () => ctx.resume();
+      //Do not edit the code below here
+      document.querySelector("button").onclick = () => ctx.resume();
     </script>
-</body>
+  </body>
 </html>
